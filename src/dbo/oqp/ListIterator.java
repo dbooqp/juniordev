@@ -77,10 +77,16 @@ public class ListIterator  {
 
     public void delName(String key) {
         current = ourList.getFirst();
-        while (current.Data.getSecondname() != key) {
-            current = current.next;
+        boolean change=true;
+        while(change) {
+            if (current.Data.getSecondname() == key) {
+                deleteCurrent(current);
+            }
+             if (current.next != null) {
+                 current = current.next;}
+            else
+                    change=false;
         }
-        deleteCurrent(current);
         reset();
     } // ПУНКТ № 5 ТЗ
 
